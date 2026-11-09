@@ -1,0 +1,1166 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malagaveli Vishnu Vardhan Reddy | Aspiring AI Engineer & Startup Founder</title>
+    
+    <!-- Meta tags for SEO -->
+    <meta name="description" content="Personal Portfolio of Malagaveli Vishnu Vardhan Reddy - First-Year Computer Science Engineering Student at Joy University x NIAT. Aspiring AI Engineer & Future Startup Founder.">
+    <meta name="keywords" content="Vishnu Vardhan Reddy, Portfolio, AI Engineer, Computer Science, Joy University, NIAT, Python, Generative AI">
+    <meta name="author" content="Malagaveli Vishnu Vardhan Reddy">
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome 6 Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        bgDark: '#05070e',
+                        cardDark: 'rgba(15, 23, 42, 0.65)',
+                        borderDark: 'rgba(56, 189, 248, 0.15)',
+                        cyanNeon: '#00f0ff',
+                        blueNeon: '#3b82f6',
+                        purpleNeon: '#8b5cf6',
+                    },
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        heading: ['Space Grotesk', 'sans-serif'],
+                    },
+                    boxShadow: {
+                        'neon-cyan': '0 0 20px rgba(0, 240, 255, 0.3)',
+                        'neon-blue': '0 0 20px rgba(59, 130, 246, 0.3)',
+                        'glow': '0 0 35px rgba(0, 240, 255, 0.15)',
+                    }
+                }
+            }
+        }
+    </script>
+    
+    <!-- Custom CSS for Glow Effects and Animations -->
+    <style>
+        body {
+            background-color: #05070e;
+            color: #f3f4f6;
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            overflow-x: hidden;
+        }
+
+        /* Glassmorphism elements */
+        .glass-panel {
+            background: rgba(13, 19, 33, 0.75);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid rgba(0, 240, 255, 0.12);
+        }
+        
+        .glass-panel:hover {
+            border-color: rgba(0, 240, 255, 0.35);
+            box-shadow: 0 8px 32px 0 rgba(0, 240, 255, 0.12);
+        }
+
+        .glass-card {
+            background: rgba(18, 25, 44, 0.6);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            transform: translateY(-5px);
+            border-color: rgba(0, 240, 255, 0.4);
+            box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.25);
+        }
+
+        /* Glowing text gradient */
+        .text-gradient {
+            background: linear-gradient(135deg, #00f0ff 0%, #3b82f6 50%, #8b5cf6 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        /* Gradient Borders */
+        .gradient-border {
+            position: relative;
+            border-radius: 1rem;
+            background: linear-gradient(135deg, rgba(0, 240, 255, 0.3), rgba(139, 92, 246, 0.3));
+            padding: 1px;
+        }
+
+        /* Animated Progress bar */
+        .progress-bar-fill {
+            transition: width 1.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar {
+            width: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #05070e;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #1e293b;
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover {
+            background: #00f0ff;
+        }
+
+        /* Canvas background positioning */
+        #bgCanvas {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+            pointer-events: none;
+        }
+    </style>
+</head>
+<body class="selection:bg-cyanNeon selection:text-black">
+
+    <!-- Interactive Canvas Particle Background -->
+    <canvas id="bgCanvas"></canvas>
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 glass-panel border-b border-white/10 transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                
+                <!-- Logo -->
+                <a href="#hero" class="flex items-center gap-2 group">
+                    <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyanNeon to-blueNeon flex items-center justify-center text-black font-extrabold text-xl font-heading shadow-neon-cyan group-hover:scale-105 transition-transform">
+                        MV
+                    </div>
+                    <span class="font-heading font-bold text-lg tracking-wider text-white group-hover:text-cyanNeon transition-colors">
+                        VISHNU<span class="text-cyanNeon">.DEV</span>
+                    </span>
+                </a>
+
+                <!-- Desktop Navigation Links -->
+                <nav class="hidden md:flex items-center gap-8">
+                    <a href="#about" class="nav-link text-sm font-medium text-gray-300 hover:text-cyanNeon transition-colors">About</a>
+                    <a href="#skills" class="nav-link text-sm font-medium text-gray-300 hover:text-cyanNeon transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-sm font-medium text-gray-300 hover:text-cyanNeon transition-colors">Projects</a>
+                    <a href="#vision" class="nav-link text-sm font-medium text-gray-300 hover:text-cyanNeon transition-colors">Vision</a>
+                    <a href="#education" class="nav-link text-sm font-medium text-gray-300 hover:text-cyanNeon transition-colors">Education</a>
+                    <a href="#contact" class="px-5 py-2.5 rounded-full bg-gradient-to-r from-cyanNeon to-blueNeon text-black font-semibold text-sm hover:opacity-90 hover:shadow-neon-cyan transition-all transform hover:-translate-y-0.5">
+                        Get In Touch
+                    </a>
+                </nav>
+
+                <!-- Mobile Menu Button -->
+                <button id="mobileMenuBtn" aria-label="Toggle Navigation Menu" class="md:hidden text-gray-300 hover:text-cyanNeon focus:outline-none p-2">
+                    <i class="fa-solid fa-bars text-2xl"></i>
+                </button>
+            </div>
+        </div>
+
+        <!-- Mobile Drawer Menu -->
+        <div id="mobileMenu" class="hidden md:hidden glass-panel border-t border-white/10 px-4 pt-4 pb-6 space-y-3">
+            <a href="#about" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyanNeon/10 hover:text-cyanNeon">About</a>
+            <a href="#skills" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyanNeon/10 hover:text-cyanNeon">Skills</a>
+            <a href="#projects" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyanNeon/10 hover:text-cyanNeon">Projects</a>
+            <a href="#vision" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyanNeon/10 hover:text-cyanNeon">Vision</a>
+            <a href="#education" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-gray-300 hover:bg-cyanNeon/10 hover:text-cyanNeon">Education</a>
+            <a href="#contact" class="mobile-nav-link block px-3 py-2 rounded-md text-base font-medium text-cyanNeon bg-cyanNeon/10 border border-cyanNeon/30">Contact Me</a>
+        </div>
+    </header>
+
+    <!-- Main Content Area -->
+    <main class="pt-20">
+
+        <!-- HERO SECTION -->
+        <section id="hero" class="min-h-screen flex items-center justify-center relative py-16 px-4 sm:px-6 lg:px-8">
+            <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Hero Left Column: Intro & CTA -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 px-4 py-2 rounded-full glass-panel border border-cyanNeon/30 text-cyanNeon text-xs sm:text-sm font-semibold uppercase tracking-widest shadow-neon-cyan">
+                        <span class="w-2 h-2 rounded-full bg-cyanNeon animate-ping"></span>
+                        First-Year CSE Student @ Joy University × NIAT
+                    </div>
+                    
+                    <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold font-heading tracking-tight leading-none text-white">
+                        Hi, I'm <br class="hidden sm:block"/>
+                        <span class="text-gradient">Malagaveli Vishnu Vardhan Reddy</span>
+                    </h1>
+                    
+                    <h2 class="text-xl sm:text-2xl font-semibold text-gray-300 flex items-center justify-center lg:justify-start gap-2 h-10">
+                        <span id="typingEffect" class="text-cyanNeon font-mono"></span>
+                        <span class="animate-pulse text-cyanNeon">|</span>
+                    </h2>
+
+                    <p class="text-gray-400 text-base sm:text-lg max-w-2xl leading-relaxed mx-auto lg:mx-0">
+                        Exploring Artificial Intelligence, Generative AI, Python programming, and Cloud Technology. Passionate about innovation, continuous learning, and building high-impact tech solutions.
+                    </p>
+
+                    <!-- CTA Buttons & Social Links -->
+                    <div class="flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4 pt-4">
+                        <a href="#projects" class="w-full sm:w-auto px-8 py-4 rounded-xl bg-gradient-to-r from-cyanNeon via-blueNeon to-purpleNeon text-black font-bold text-base hover:shadow-neon-cyan hover:scale-105 transition-all text-center">
+                            View Projects <i class="fa-solid fa-arrow-right ml-2"></i>
+                        </a>
+                        <a href="#contact" class="w-full sm:w-auto px-8 py-4 rounded-xl glass-card text-white font-semibold text-base hover:bg-white/10 border border-white/20 hover:border-cyanNeon/50 transition-all text-center">
+                            Contact Me
+                        </a>
+                    </div>
+
+                    <!-- Social Media Links -->
+                    <div class="flex items-center justify-center lg:justify-start gap-5 pt-6 text-gray-400">
+                        <a href="https://github.com/vishnu-vardhan-reddy-malagaveli" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-xl hover:text-cyanNeon hover:border-cyanNeon transition-all" aria-label="GitHub Profile">
+                            <i class="fa-brands fa-github"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/vishnu-vardhan-reddy-malagaveli-9b6464429/" target="_blank" rel="noopener noreferrer" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-xl hover:text-cyanNeon hover:border-cyanNeon transition-all" aria-label="LinkedIn Profile">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                        <a href="mailto:vishnuvardhanreddymalagaveli6@gmail.com" class="w-12 h-12 rounded-xl glass-card flex items-center justify-center text-xl hover:text-cyanNeon hover:border-cyanNeon transition-all" aria-label="Email Direct">
+                            <i class="fa-solid fa-envelope"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Hero Right Column: Developer Code Card Illustration -->
+                <div class="lg:col-span-5 flex justify-center">
+                    <div class="relative w-full max-w-md">
+                        <!-- Glow Backdrops -->
+                        <div class="absolute -top-10 -left-10 w-48 h-48 bg-cyanNeon/20 rounded-full blur-3xl pointer-events-none"></div>
+                        <div class="absolute -bottom-10 -right-10 w-48 h-48 bg-purpleNeon/20 rounded-full blur-3xl pointer-events-none"></div>
+
+                        <!-- IDE Code Window Card -->
+                        <div class="glass-panel rounded-2xl overflow-hidden shadow-2xl border border-white/15">
+                            <!-- Window Bar -->
+                            <div class="bg-slate-900/90 px-4 py-3 flex items-center justify-between border-b border-white/10">
+                                <div class="flex items-center gap-2">
+                                    <span class="w-3 h-3 rounded-full bg-red-500/80 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-yellow-500/80 inline-block"></span>
+                                    <span class="w-3 h-3 rounded-full bg-green-500/80 inline-block"></span>
+                                </div>
+                                <span class="text-xs font-mono text-gray-400">developer_profile.py</span>
+                                <i class="fa-solid fa-code text-xs text-cyanNeon"></i>
+                            </div>
+                            
+                            <!-- Code Body -->
+                            <div class="p-5 font-mono text-xs sm:text-sm space-y-2 leading-relaxed text-gray-300">
+                                <p><span class="text-purple-400">class</span> <span class="text-yellow-300">Developer</span>:</p>
+                                <p class="pl-4"><span class="text-purple-400">def</span> <span class="text-blue-400">__init__</span>(self):</p>
+                                <p class="pl-8"><span class="text-red-400">self</span>.name = <span class="text-green-400">"Vishnu Vardhan Reddy"</span></p>
+                                <p class="pl-8"><span class="text-red-400">self</span>.role = <span class="text-green-400">"CSE Student"</span></p>
+                                <p class="pl-8"><span class="text-red-400">self</span>.univ = <span class="text-green-400">"Joy University × NIAT"</span></p>
+                                <p class="pl-8"><span class="text-red-400">self</span>.focus = [<span class="text-green-400">"AI"</span>, <span class="text-green-400">"GenAI"</span>, <span class="text-green-400">"Cloud"</span>]</p>
+                                <p class="pl-8"><span class="text-red-400">self</span>.goal = <span class="text-green-400">"Tech Entrepreneur"</span></p>
+                                <br>
+                                <p class="pl-4"><span class="text-purple-400">def</span> <span class="text-blue-400">build_future</span>(self):</p>
+                                <p class="pl-8"><span class="text-purple-400">return</span> <span class="text-cyanNeon">"Turning innovative ideas into reality!"</span></p>
+                                <br>
+                                <p><span class="text-gray-500"># Output execution</span></p>
+                                <p><span class="text-yellow-300">dev</span> = Developer()</p>
+                                <p><span class="text-blue-400">print</span>(dev.build_future())</p>
+                            </div>
+                            
+                            <!-- Terminal Footer Status -->
+                            <div class="bg-slate-950/80 px-5 py-3 border-t border-white/10 flex items-center justify-between text-xs font-mono text-cyanNeon">
+                                <span class="flex items-center gap-2">
+                                    <span class="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
+                                    Status: Ready to Code
+                                </span>
+                                <span class="text-gray-500">Python 3.11</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ABOUT ME SECTION -->
+        <section id="about" class="py-20 px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">01. Discovery</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">About Me</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
+                    
+                    <!-- Bio Description -->
+                    <div class="lg:col-span-7 glass-panel p-8 sm:p-10 rounded-2xl space-y-6">
+                        <h3 class="text-2xl font-bold font-heading text-white">
+                            Driven by Curiosity & Tech Innovation
+                        </h3>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            I am <strong class="text-cyanNeon">Malagaveli Vishnu Vardhan Reddy</strong>, a passionate first-year Computer Science Engineering student studying at <strong class="text-white">Joy University × NIAT</strong>. I have a deep fascination with how modern software and intelligent models reshape our everyday lives.
+                        </p>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            Currently, I am expanding my foundational knowledge in <strong class="text-white">Python programming</strong>, <strong class="text-white">Generative AI principles</strong>, and modern <strong class="text-white">Web Development</strong>. I believe in continuous learning, hands-on experimentation, and turning concepts into practical projects.
+                        </p>
+                        <p class="text-gray-300 text-base leading-relaxed">
+                            My long-term aspiration is to become a successful technology entrepreneur, creating AI-driven solutions that solve tangible real-world problems.
+                        </p>
+
+                        <!-- Quick Info Badges -->
+                        <div class="grid grid-cols-2 sm:grid-cols-3 gap-4 pt-4 border-t border-white/10">
+                            <div class="p-3 glass-card rounded-xl">
+                                <span class="text-xs text-gray-400 block font-mono">Location</span>
+                                <span class="text-sm font-semibold text-white">Andhra Pradesh, India</span>
+                            </div>
+                            <div class="p-3 glass-card rounded-xl">
+                                <span class="text-xs text-gray-400 block font-mono">University</span>
+                                <span class="text-sm font-semibold text-white">Joy Univ × NIAT</span>
+                            </div>
+                            <div class="p-3 glass-card rounded-xl col-span-2 sm:col-span-1">
+                                <span class="text-xs text-gray-400 block font-mono">Background</span>
+                                <span class="text-sm font-semibold text-cyanNeon">SOCI</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Highlights Cards -->
+                    <div class="lg:col-span-5 space-y-4">
+                        <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-cyanNeon/10 border border-cyanNeon/30 flex items-center justify-center text-cyanNeon shrink-0 text-xl">
+                                <i class="fa-solid fa-brain"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white font-heading">AI & Automation</h4>
+                                <p class="text-gray-400 text-sm mt-1">Exploring Generative AI workflows, LLM applications, and intelligent automation script design.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-blueNeon/10 border border-blueNeon/30 flex items-center justify-center text-blueNeon shrink-0 text-xl">
+                                <i class="fa-solid fa-cloud"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white font-heading">Cloud Technologies</h4>
+                                <p class="text-gray-400 text-sm mt-1">Understanding cloud architecture fundamentals to build scalable futuristic software platforms.</p>
+                            </div>
+                        </div>
+
+                        <div class="glass-card p-6 rounded-2xl flex items-start gap-4">
+                            <div class="w-12 h-12 rounded-xl bg-purpleNeon/10 border border-purpleNeon/30 flex items-center justify-center text-purpleNeon shrink-0 text-xl">
+                                <i class="fa-solid fa-rocket"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-lg font-bold text-white font-heading">Startup Mindset</h4>
+                                <p class="text-gray-400 text-sm mt-1">Combining technical domain knowledge with entrepreneurial vision to make a real impact.</p>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- SKILLS SECTION -->
+        <section id="skills" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/40 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">02. Technical Capabilities</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Skills & Learning Roadmap</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-10">
+                    
+                    <!-- Current Active Skills -->
+                    <div class="glass-panel p-8 rounded-2xl space-y-6">
+                        <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-code text-cyanNeon text-xl"></i>
+                            <h3 class="text-xl font-bold font-heading text-white">Current Skills</h3>
+                        </div>
+
+                        <!-- Skill Item -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-medium text-gray-200 flex items-center gap-2">
+                                    <i class="fa-brands fa-python text-yellow-400"></i> Python Programming
+                                </span>
+                                <span class="text-cyanNeon font-mono font-semibold">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/5">
+                                <div class="progress-bar-fill bg-gradient-to-r from-cyanNeon to-blueNeon h-full rounded-full" style="width: 75%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Item -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-medium text-gray-200 flex items-center gap-2">
+                                    <i class="fa-brands fa-html5 text-orange-500"></i> HTML5 Markup
+                                </span>
+                                <span class="text-cyanNeon font-mono font-semibold">Proficient</span>
+                            </div>
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/5">
+                                <div class="progress-bar-fill bg-gradient-to-r from-cyanNeon to-blueNeon h-full rounded-full" style="width: 85%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Item -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-medium text-gray-200 flex items-center gap-2">
+                                    <i class="fa-brands fa-css3-alt text-blue-500"></i> CSS3 & Layouts
+                                </span>
+                                <span class="text-cyanNeon font-mono font-semibold">Intermediate</span>
+                            </div>
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/5">
+                                <div class="progress-bar-fill bg-gradient-to-r from-cyanNeon to-blueNeon h-full rounded-full" style="width: 70%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Item -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-medium text-gray-200 flex items-center gap-2">
+                                    <i class="fa-brands fa-js text-yellow-300"></i> JavaScript Fundamentals
+                                </span>
+                                <span class="text-cyanNeon font-mono font-semibold">Basic / Learner</span>
+                            </div>
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/5">
+                                <div class="progress-bar-fill bg-gradient-to-r from-cyanNeon to-blueNeon h-full rounded-full" style="width: 60%"></div>
+                            </div>
+                        </div>
+
+                        <!-- Skill Item -->
+                        <div class="space-y-2">
+                            <div class="flex justify-between items-center text-sm">
+                                <span class="font-medium text-gray-200 flex items-center gap-2">
+                                    <i class="fa-solid fa-laptop-code text-cyanNeon"></i> Web Development Projects
+                                </span>
+                                <span class="text-cyanNeon font-mono font-semibold">Active Development</span>
+                            </div>
+                            <div class="w-full bg-slate-800/80 rounded-full h-2.5 overflow-hidden p-0.5 border border-white/5">
+                                <div class="progress-bar-fill bg-gradient-to-r from-cyanNeon to-blueNeon h-full rounded-full" style="width: 65%"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Currently Exploring Skills -->
+                    <div class="glass-panel p-8 rounded-2xl space-y-6">
+                        <div class="flex items-center gap-3 border-b border-white/10 pb-4">
+                            <i class="fa-solid fa-compass text-purpleNeon text-xl animate-spin" style="animation-duration: 8s;"></i>
+                            <h3 class="text-xl font-bold font-heading text-white">Currently Exploring</h3>
+                        </div>
+
+                        <!-- Exploring Card 1 -->
+                        <div class="glass-card p-4 rounded-xl flex items-center justify-between border-l-4 border-l-purpleNeon">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-purpleNeon/20 flex items-center justify-center text-purpleNeon">
+                                    <i class="fa-solid fa-microchip"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Generative AI Fundamentals</h4>
+                                    <p class="text-xs text-gray-400">Prompting, LLMs, Neural Nets basics</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-purpleNeon/20 text-purple-300 text-xs font-mono font-medium">Learning</span>
+                        </div>
+
+                        <!-- Exploring Card 2 -->
+                        <div class="glass-card p-4 rounded-xl flex items-center justify-between border-l-4 border-l-cyanNeon">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-cyanNeon/20 flex items-center justify-center text-cyanNeon">
+                                    <i class="fa-solid fa-robot"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">AI Automation</h4>
+                                    <p class="text-xs text-gray-400">Automating text processing & workflows</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-cyanNeon/20 text-cyan-300 text-xs font-mono font-medium">Exploring</span>
+                        </div>
+
+                        <!-- Exploring Card 3 -->
+                        <div class="glass-card p-4 rounded-xl flex items-center justify-between border-l-4 border-l-blueNeon">
+                            <div class="flex items-center gap-3">
+                                <div class="w-10 h-10 rounded-lg bg-blueNeon/20 flex items-center justify-center text-blueNeon">
+                                    <i class="fa-solid fa-cloud"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-bold text-white text-sm">Cloud Technologies</h4>
+                                    <p class="text-xs text-gray-400">Cloud deployment & distributed infrastructure</p>
+                                </div>
+                            </div>
+                            <span class="px-2.5 py-1 rounded-full bg-blueNeon/20 text-blue-300 text-xs font-mono font-medium">Roadmap</span>
+                        </div>
+
+                        <div class="p-4 rounded-xl border border-white/10 bg-white/5 text-xs text-gray-400 leading-relaxed">
+                            <i class="fa-solid fa-info-circle text-cyanNeon mr-1"></i> As a first-year CSE student, I dedicate time every week to strengthening fundamental programming concepts while actively studying emerging AI models.
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- PROJECTS SECTION -->
+        <section id="projects" class="py-20 px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">03. Practical Work</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Featured Projects</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Filter Controls -->
+                <div class="flex justify-center items-center gap-2 sm:gap-4 mb-12 flex-wrap">
+                    <button class="filter-btn active px-5 py-2 rounded-full text-xs sm:text-sm font-semibold transition-all bg-gradient-to-r from-cyanNeon to-blueNeon text-black" data-filter="all">All Projects</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold glass-card text-gray-300 hover:text-white border border-white/10 transition-all" data-filter="ai-python">AI & Python</button>
+                    <button class="filter-btn px-5 py-2 rounded-full text-xs sm:text-sm font-semibold glass-card text-gray-300 hover:text-white border border-white/10 transition-all" data-filter="web">Web Development</button>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    
+                    <!-- Project Card 1 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="ai-python">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-purpleNeon/20 text-purpleNeon flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-newspaper"></i>
+                                </span>
+                                <span class="text-xs font-mono text-purple-300 bg-purpleNeon/10 border border-purpleNeon/30 px-2.5 py-1 rounded-full">Gen AI</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">AI News Summarizer Automation</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                A Generative AI project that automates news article collection and generates concise, high-quality summaries efficiently.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">AI</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Automation</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Generative AI</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <button onclick="showRepoNotice('AI News Summarizer Automation')" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View Repository
+                            </button>
+                            <span class="text-xs text-gray-500 font-mono">Python/AI</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 2 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="ai-python">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-yellow-500/20 text-yellow-400 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-graduation-cap"></i>
+                                </span>
+                                <span class="text-xs font-mono text-yellow-300 bg-yellow-500/10 border border-yellow-500/30 px-2.5 py-1 rounded-full">Python</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Student Grade Management System</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                A structured Python software utility designed to streamline student data storage, calculate average marks, and determine grades accurately.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Python</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Logic</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Data Handling</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <button onclick="showRepoNotice('Student Grade Management System')" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View Repository
+                            </button>
+                            <span class="text-xs text-gray-500 font-mono">Python CLI</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 3 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="ai-python">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-emerald-500/20 text-emerald-400 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-piggy-bank"></i>
+                                </span>
+                                <span class="text-xs font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/30 px-2.5 py-1 rounded-full">Python</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">ATM Withdrawal System</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Interactive Python application simulating essential banking ATM operations, account authentication, and balance updates.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Python</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">OOP</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Simulation</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <button onclick="showRepoNotice('ATM Withdrawal System')" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View Repository
+                            </button>
+                            <span class="text-xs text-gray-500 font-mono">Python</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 4 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="web">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-cyanNeon/20 text-cyanNeon flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-address-card"></i>
+                                </span>
+                                <span class="text-xs font-mono text-cyan-300 bg-cyanNeon/10 border border-cyanNeon/30 px-2.5 py-1 rounded-full">Frontend</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Personal Portfolio Website</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                A modern responsive web showcase highlighting profile, skills, academic journey, and futuristic startup vision.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">HTML5</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Tailwind</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">JavaScript</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <a href="https://github.com/vishnu-vardhan-reddy-malagaveli" target="_blank" rel="noopener noreferrer" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View GitHub Profile
+                            </a>
+                            <span class="text-xs text-gray-500 font-mono">Web</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 5 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="web">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-red-500/20 text-red-400 flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-utensils"></i>
+                                </span>
+                                <span class="text-xs font-mono text-red-300 bg-red-500/10 border border-red-500/30 px-2.5 py-1 rounded-full">Web Design</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Food Website</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                An aesthetically appealing restaurant and culinary showcase website with structured menus and food displays.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">HTML</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">CSS</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">UI Design</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <button onclick="showRepoNotice('Food Website')" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View Repository
+                            </button>
+                            <span class="text-xs text-gray-500 font-mono">Web UI</span>
+                        </div>
+                    </div>
+
+                    <!-- Project Card 6 -->
+                    <div class="project-card glass-card rounded-2xl overflow-hidden flex flex-col justify-between" data-category="web">
+                        <div class="p-6 space-y-4">
+                            <div class="flex items-center justify-between">
+                                <span class="w-10 h-10 rounded-xl bg-blueNeon/20 text-blueNeon flex items-center justify-center text-lg">
+                                    <i class="fa-solid fa-plane"></i>
+                                </span>
+                                <span class="text-xs font-mono text-blue-300 bg-blueNeon/10 border border-blueNeon/30 px-2.5 py-1 rounded-full">Web Dev</span>
+                            </div>
+                            <h3 class="text-xl font-bold font-heading text-white">Tourist Website</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                A web platform showcasing tourist destinations, travel information, itineraries, and landmark spotlights.
+                            </p>
+                            <div class="flex flex-wrap gap-2 pt-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Frontend</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">CSS Flexbox</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded-md bg-white/5 text-cyanNeon border border-white/10">Responsive</span>
+                            </div>
+                        </div>
+                        <div class="p-6 pt-0 border-t border-white/5 flex items-center justify-between mt-4">
+                            <button onclick="showRepoNotice('Tourist Website')" class="text-xs text-gray-300 hover:text-cyanNeon flex items-center gap-2 transition-colors">
+                                <i class="fa-brands fa-github text-base"></i> View Repository
+                            </button>
+                            <span class="text-xs text-gray-500 font-mono">Web UI</span>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- MY VISION SECTION -->
+        <section id="vision" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/60 relative overflow-hidden">
+            <!-- Background Glow Elements -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-gradient-to-r from-cyanNeon/10 to-purpleNeon/10 blur-[100px] pointer-events-none"></div>
+
+            <div class="max-w-5xl mx-auto relative z-10">
+                <div class="text-center max-w-3xl mx-auto mb-12">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">04. Career Goal</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">My Vision</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Vision Quote Card -->
+                <div class="glass-panel p-8 sm:p-12 rounded-3xl border border-cyanNeon/30 relative shadow-glow">
+                    <i class="fa-solid fa-quote-left text-4xl sm:text-6xl text-cyanNeon/20 absolute top-6 left-6"></i>
+                    
+                    <div class="relative z-10 text-center space-y-6">
+                        <blockquote class="text-xl sm:text-2xl lg:text-3xl font-heading font-medium text-white leading-relaxed italic">
+                            "My vision is to become an entrepreneur and build a successful technology startup. I want to explore Artificial Intelligence and Cloud Technology to create innovative solutions that make a meaningful impact on people's lives."
+                        </blockquote>
+
+                        <div class="flex items-center justify-center gap-3 pt-4">
+                            <div class="w-12 h-12 rounded-full bg-gradient-to-br from-cyanNeon to-purpleNeon flex items-center justify-center text-black font-bold font-heading">
+                                VV
+                            </div>
+                            <div class="text-left">
+                                <h4 class="font-bold text-white text-base">Malagaveli Vishnu Vardhan Reddy</h4>
+                                <p class="text-xs text-cyanNeon font-mono">Future Startup Founder & AI Engineer</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Vision Pillars -->
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mt-12">
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-cyanNeon/10 text-cyanNeon mx-auto flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-lightbulb"></i>
+                        </div>
+                        <h4 class="font-bold text-white font-heading">Continuous Learning</h4>
+                        <p class="text-xs text-gray-400">Mastering Python algorithms, web architectures, and AI theoretical foundations step-by-step.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-blueNeon/10 text-blueNeon mx-auto flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-microchip"></i>
+                        </div>
+                        <h4 class="font-bold text-white font-heading">AI & Cloud Focus</h4>
+                        <p class="text-xs text-gray-400">Leveraging generative intelligence and scalable cloud networks to solve real industry challenges.</p>
+                    </div>
+
+                    <div class="glass-card p-6 rounded-2xl text-center space-y-3">
+                        <div class="w-12 h-12 rounded-xl bg-purpleNeon/10 text-purpleNeon mx-auto flex items-center justify-center text-xl">
+                            <i class="fa-solid fa-building-user"></i>
+                        </div>
+                        <h4 class="font-bold text-white font-heading">Startup Execution</h4>
+                        <p class="text-xs text-gray-400">Building products from the ground up to empower users and foster tech innovation in India.</p>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- EDUCATION SECTION -->
+        <section id="education" class="py-20 px-4 sm:px-6 lg:px-8 relative">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">05. Academic Journey</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Education</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <!-- Timeline Item -->
+                <div class="relative border-l-2 border-cyanNeon/30 ml-4 sm:ml-8 pl-6 sm:pl-8 space-y-8">
+                    
+                    <div class="relative group">
+                        <!-- Node Circle -->
+                        <div class="absolute -left-[31px] sm:-left-[39px] top-1.5 w-5 h-5 rounded-full bg-cyanNeon border-4 border-bgDark group-hover:scale-125 transition-transform"></div>
+                        
+                        <div class="glass-panel p-6 sm:p-8 rounded-2xl space-y-3">
+                            <div class="flex flex-wrap items-center justify-between gap-2">
+                                <span class="px-3 py-1 rounded-full bg-cyanNeon/10 border border-cyanNeon/30 text-cyanNeon font-mono text-xs font-semibold">
+                                    Current Student (First-Year)
+                                </span>
+                                <span class="text-xs text-gray-400 font-mono"><i class="fa-regular fa-calendar mr-1"></i> Present</span>
+                            </div>
+
+                            <h3 class="text-xl sm:text-2xl font-bold font-heading text-white">
+                                B.Tech in Computer Science Engineering (CSE)
+                            </h3>
+                            
+                            <p class="text-cyanNeon font-semibold text-base flex items-center gap-2">
+                                <i class="fa-solid fa-building-columns"></i> Joy University × NIAT
+                            </p>
+
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                Actively learning core engineering principles, Python programming, web development fundamentals, and data management. Participating in tech workshops and focusing on AI automation tracks.
+                            </p>
+
+                            <div class="pt-2 flex flex-wrap gap-2">
+                                <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-gray-300">Computer Science</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-gray-300">Python</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-gray-300">Generative AI</span>
+                                <span class="text-xs font-mono px-2.5 py-1 rounded bg-white/5 text-gray-300">Web Dev</span>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- CONTACT SECTION -->
+        <section id="contact" class="py-20 px-4 sm:px-6 lg:px-8 bg-slate-950/40 relative">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center max-w-3xl mx-auto mb-16">
+                    <h2 class="text-xs font-bold text-cyanNeon uppercase tracking-widest mb-2 font-mono">06. Connect</h2>
+                    <p class="text-3xl sm:text-4xl font-extrabold font-heading text-white">Get In Touch</p>
+                    <div class="w-20 h-1 bg-gradient-to-r from-cyanNeon to-blueNeon mx-auto mt-4 rounded-full"></div>
+                </div>
+
+                <div class="grid grid-cols-1 lg:grid-cols-12 gap-10">
+                    
+                    <!-- Contact Cards -->
+                    <div class="lg:col-span-5 space-y-6">
+                        <div class="glass-panel p-8 rounded-2xl space-y-6">
+                            <h3 class="text-xl font-bold font-heading text-white">Let's Connect</h3>
+                            <p class="text-gray-400 text-sm leading-relaxed">
+                                I am always eager to connect with fellow students, mentors, recruiters, and tech enthusiasts. Feel free to send a message!
+                            </p>
+
+                            <!-- Email Card -->
+                            <a href="mailto:vishnuvardhanreddymalagaveli6@gmail.com" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-cyanNeon transition-all block">
+                                <div class="w-12 h-12 rounded-xl bg-cyanNeon/10 text-cyanNeon flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-solid fa-envelope"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-xs text-gray-400 block font-mono">Email Me</span>
+                                    <span class="text-sm font-semibold text-white truncate block hover:text-cyanNeon">vishnuvardhanreddymalagaveli6@gmail.com</span>
+                                </div>
+                            </a>
+
+                            <!-- LinkedIn Card -->
+                            <a href="https://www.linkedin.com/in/vishnu-vardhan-reddy-malagaveli-9b6464429/" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-cyanNeon transition-all block">
+                                <div class="w-12 h-12 rounded-xl bg-blueNeon/10 text-blueNeon flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-brands fa-linkedin-in"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-xs text-gray-400 block font-mono">LinkedIn Profile</span>
+                                    <span class="text-sm font-semibold text-white truncate block hover:text-cyanNeon">vishnu-vardhan-reddy-malagaveli</span>
+                                </div>
+                            </a>
+
+                            <!-- GitHub Card -->
+                            <a href="https://github.com/vishnu-vardhan-reddy-malagaveli" target="_blank" rel="noopener noreferrer" class="glass-card p-4 rounded-xl flex items-center gap-4 hover:border-cyanNeon transition-all block">
+                                <div class="w-12 h-12 rounded-xl bg-purpleNeon/10 text-purpleNeon flex items-center justify-center text-xl shrink-0">
+                                    <i class="fa-brands fa-github"></i>
+                                </div>
+                                <div class="overflow-hidden">
+                                    <span class="text-xs text-gray-400 block font-mono">GitHub Repositories</span>
+                                    <span class="text-sm font-semibold text-white truncate block hover:text-cyanNeon">vishnu-vardhan-reddy-malagaveli</span>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Contact Form -->
+                    <div class="lg:col-span-7">
+                        <form id="contactForm" class="glass-panel p-8 rounded-2xl space-y-6" novalidate>
+                            <h3 class="text-xl font-bold font-heading text-white">Send Me a Message</h3>
+
+                            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                                <div>
+                                    <label for="name" class="block text-xs font-mono text-gray-300 mb-2">Your Name *</label>
+                                    <input type="text" id="name" required class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white focus:outline-none focus:border-cyanNeon transition-colors text-sm" placeholder="e.g. Alex Johnson">
+                                    <span class="text-xs text-red-400 hidden mt-1" id="nameError">Please enter your name.</span>
+                                </div>
+
+                                <div>
+                                    <label for="email" class="block text-xs font-mono text-gray-300 mb-2">Your Email *</label>
+                                    <input type="email" id="email" required class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white focus:outline-none focus:border-cyanNeon transition-colors text-sm" placeholder="alex@example.com">
+                                    <span class="text-xs text-red-400 hidden mt-1" id="emailError">Please enter a valid email address.</span>
+                                </div>
+                            </div>
+
+                            <div>
+                                <label for="subject" class="block text-xs font-mono text-gray-300 mb-2">Subject</label>
+                                <input type="text" id="subject" class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white focus:outline-none focus:border-cyanNeon transition-colors text-sm" placeholder="Project Inquiry / Collaboration">
+                            </div>
+
+                            <div>
+                                <label for="message" class="block text-xs font-mono text-gray-300 mb-2">Message *</label>
+                                <textarea id="message" rows="4" required class="w-full px-4 py-3 rounded-xl bg-slate-900/80 border border-white/10 text-white focus:outline-none focus:border-cyanNeon transition-colors text-sm resize-none" placeholder="Hello Vishnu, I would like to talk about..."></textarea>
+                                <span class="text-xs text-red-400 hidden mt-1" id="messageError">Please write your message.</span>
+                            </div>
+
+                            <button type="submit" class="w-full py-4 rounded-xl bg-gradient-to-r from-cyanNeon to-blueNeon text-black font-bold text-base hover:shadow-neon-cyan transition-all flex items-center justify-center gap-2">
+                                <i class="fa-solid fa-paper-plane"></i> Send Message
+                            </button>
+                        </form>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="border-t border-white/10 glass-panel py-10 px-4 sm:px-6 lg:px-8">
+        <div class="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-6 text-center sm:text-left">
+            <div>
+                <span class="font-heading font-bold text-lg text-white">Malagaveli Vishnu Vardhan Reddy</span>
+                <p class="text-xs text-gray-400 mt-1 font-mono">CSE Student @ Joy University × NIAT | Aspiring Tech Entrepreneur</p>
+            </div>
+
+            <!-- Social Media Quick Links -->
+            <div class="flex items-center gap-4 text-gray-400 text-lg">
+                <a href="https://github.com/vishnu-vardhan-reddy-malagaveli" target="_blank" rel="noopener noreferrer" class="hover:text-cyanNeon transition-colors" aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/vishnu-vardhan-reddy-malagaveli-9b6464429/" target="_blank" rel="noopener noreferrer" class="hover:text-cyanNeon transition-colors" aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:vishnuvardhanreddymalagaveli6@gmail.com" class="hover:text-cyanNeon transition-colors" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+
+            <p class="text-xs text-gray-500 font-mono">
+                &copy; 2026 Malagaveli Vishnu Vardhan Reddy. Built with passion & modern tech.
+            </p>
+        </div>
+    </footer>
+
+    <!-- MODAL POPUP FOR REPOSITORY NOTICE -->
+    <div id="repoModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel max-w-md w-full p-6 rounded-2xl border border-cyanNeon/40 space-y-4 text-center">
+            <div class="w-12 h-12 rounded-full bg-cyanNeon/20 text-cyanNeon mx-auto flex items-center justify-center text-xl">
+                <i class="fa-brands fa-github"></i>
+            </div>
+            <h3 class="text-xl font-bold font-heading text-white" id="modalProjectTitle">Project Repository</h3>
+            <p class="text-sm text-gray-300 leading-relaxed">
+                Source code repository link for this project is available upon request. You can also explore my public repositories on GitHub.
+            </p>
+            <div class="flex items-center gap-3 pt-2">
+                <a href="https://github.com/vishnu-vardhan-reddy-malagaveli" target="_blank" rel="noopener noreferrer" class="flex-1 py-2.5 rounded-xl bg-gradient-to-r from-cyanNeon to-blueNeon text-black font-semibold text-xs hover:shadow-neon-cyan transition-all">
+                    Visit GitHub
+                </a>
+                <button onclick="closeModal()" class="flex-1 py-2.5 rounded-xl glass-card text-white text-xs border border-white/20 hover:bg-white/10">
+                    Close
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- FEEDBACK TOAST NOTIFICATION -->
+    <div id="toast" class="fixed bottom-6 right-6 z-50 hidden glass-panel border border-cyanNeon text-cyanNeon px-6 py-4 rounded-xl shadow-neon-cyan flex items-center gap-3 font-mono text-sm">
+        <i class="fa-solid fa-circle-check text-lg"></i>
+        <span id="toastMsg">Message sent successfully!</span>
+    </div>
+
+    <!-- JAVASCRIPT CORE LOGIC -->
+    <script>
+        // --- 1. DYNAMIC TYPING EFFECT ---
+        const typingTextElement = document.getElementById('typingEffect');
+        const phrases = [
+            "Aspiring AI Engineer",
+            "Future Startup Founder",
+            "Generative AI Explorer",
+            "Python Developer"
+        ];
+        let phraseIdx = 0;
+        let charIdx = 0;
+        let isDeleting = false;
+
+        function typeLoop() {
+            const currentPhrase = phrases[phraseIdx];
+            
+            if (isDeleting) {
+                typingTextElement.textContent = currentPhrase.substring(0, charIdx - 1);
+                charIdx--;
+            } else {
+                typingTextElement.textContent = currentPhrase.substring(0, charIdx + 1);
+                charIdx++;
+            }
+
+            let typeSpeed = isDeleting ? 40 : 80;
+
+            if (!isDeleting && charIdx === currentPhrase.length) {
+                typeSpeed = 2000; // Pause at end
+                isDeleting = true;
+            } else if (isDeleting && charIdx === 0) {
+                isDeleting = false;
+                phraseIdx = (phraseIdx + 1) % phrases.length;
+                typeSpeed = 500;
+            }
+
+            setTimeout(typeLoop, typeSpeed);
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            typeLoop();
+        });
+
+        // --- 2. CANVAS NODE/PARTICLE ANIMATION ---
+        const canvas = document.getElementById('bgCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const particles = [];
+        const particleCount = Math.min(Math.floor(window.innerWidth / 20), 60);
+
+        for (let i = 0; i < particleCount; i++) {
+            particles.push({
+                x: Math.random() * canvas.width,
+                y: Math.random() * canvas.height,
+                vx: (Math.random() - 0.5) * 0.5,
+                vy: (Math.random() - 0.5) * 0.5,
+                radius: Math.random() * 2 + 1
+            });
+        }
+
+        function drawParticles() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            
+            // Draw particles
+            for (let i = 0; i < particles.length; i++) {
+                const p = particles[i];
+                p.x += p.vx;
+                p.y += p.vy;
+
+                if (p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.vy *= -1;
+
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.radius, 0, Math.PI * 2);
+                ctx.fillStyle = 'rgba(0, 240, 255, 0.4)';
+                ctx.fill();
+
+                // Connect nearby particles
+                for (let j = i + 1; j < particles.length; j++) {
+                    const p2 = particles[j];
+                    const dx = p.x - p2.x;
+                    const dy = p.y - p2.y;
+                    const dist = Math.sqrt(dx * dx + dy * dy);
+
+                    if (dist < 140) {
+                        ctx.beginPath();
+                        ctx.moveTo(p.x, p.y);
+                        ctx.lineTo(p2.x, p2.y);
+                        ctx.strokeStyle = `rgba(0, 240, 255, ${0.15 * (1 - dist / 140)})`;
+                        ctx.lineWidth = 0.8;
+                        ctx.stroke();
+                    }
+                }
+            }
+            requestAnimationFrame(drawParticles);
+        }
+        drawParticles();
+
+        // --- 3. MOBILE MENU TOGGLE ---
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        mobileMenuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Close mobile drawer on link click
+        document.querySelectorAll('.mobile-nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.add('hidden');
+            });
+        });
+
+        // --- 4. PROJECT FILTERING ---
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const projectCards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => {
+                    b.classList.remove('active', 'bg-gradient-to-r', 'from-cyanNeon', 'to-blueNeon', 'text-black');
+                    b.classList.add('glass-card', 'text-gray-300');
+                });
+                btn.classList.add('active', 'bg-gradient-to-r', 'from-cyanNeon', 'to-blueNeon', 'text-black');
+                btn.classList.remove('glass-card', 'text-gray-300');
+
+                const filter = btn.getAttribute('data-filter');
+
+                projectCards.forEach(card => {
+                    if (filter === 'all' || card.getAttribute('data-category') === filter) {
+                        card.style.display = 'flex';
+                    } else {
+                        card.style.display = 'none';
+                    }
+                });
+            });
+        });
+
+        // --- 5. REPOSITORY MODAL NOTICE ---
+        const repoModal = document.getElementById('repoModal');
+        const modalProjectTitle = document.getElementById('modalProjectTitle');
+
+        function showRepoNotice(projectTitle) {
+            modalProjectTitle.textContent = projectTitle;
+            repoModal.classList.remove('hidden');
+        }
+
+        function closeModal() {
+            repoModal.classList.add('hidden');
+        }
+
+        // --- 6. CONTACT FORM VALIDATION & FEEDBACK ---
+        const contactForm = document.getElementById('contactForm');
+        const toast = document.getElementById('toast');
+        const toastMsg = document.getElementById('toastMsg');
+
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            
+            const name = document.getElementById('name');
+            const email = document.getElementById('email');
+            const message = document.getElementById('message');
+
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const messageError = document.getElementById('messageError');
+
+            let isValid = true;
+
+            // Name check
+            if (!name.value.trim()) {
+                nameError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                nameError.classList.add('hidden');
+            }
+
+            // Email check
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            if (!emailRegex.test(email.value.trim())) {
+                emailError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                emailError.classList.add('hidden');
+            }
+
+            // Message check
+            if (!message.value.trim()) {
+                messageError.classList.remove('hidden');
+                isValid = false;
+            } else {
+                messageError.classList.add('hidden');
+            }
+
+            if (isValid) {
+                // Show feedback toast
+                toastMsg.textContent = `Thank you, ${name.value.trim()}! Message sent.`;
+                toast.classList.remove('hidden');
+                
+                // Clear inputs
+                contactForm.reset();
+
+                setTimeout(() => {
+                    toast.classList.add('hidden');
+                }, 4000);
+            }
+        });
+    </script>
+</body>
+</html>
